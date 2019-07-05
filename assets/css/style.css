@@ -804,6 +804,13 @@ input::-ms-input-placeholder {
 .main_history .single_history_content .head_title h2{
     border-left:6px solid #e74c3c;
     padding-left: 30px;
+   
+}
+.main_history  p{
+    font-size: 1em;
+    word-spacing: 0.5em;
+    padding-top: none;
+    margin:auto;
 }
 
 
@@ -1087,6 +1094,7 @@ button.btn-md:hover {
        font-weight: bold;
       
 }
+
 #quote p{
     font-size: 1em;
 
@@ -1095,8 +1103,11 @@ button.btn-md:hover {
   /* Add a blue color to the author */
 #quote .author {color: black;}
 
- #quote img{
+
+#quote img{
+
     display: inline-block;
+
     border-radius: 50%;
     height: 75px ;
     width: 75px;

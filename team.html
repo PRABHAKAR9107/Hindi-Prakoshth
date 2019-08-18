@@ -1,0 +1,1001 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+/*
+ * 1. core styles
+ */
+ .jumbotron h1
+{
+  font-size: 60px;
+  
+}
+.jumbotron h3{
+  font-size: 30px;
+}
+.jumbotron p{
+  font-size:20px;
+}
+.jumbotron .btn {
+  font-size: 20px;
+}
+
+.teamy{
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.teamy__layout{
+    position: relative;
+}
+
+.teamy__preview{
+    position: relative;
+    overflow: hidden;
+}
+.teamy__layout img{
+  display: block;
+  width: 100%;
+  height: 250px;
+
+}
+
+.teamy__preview:before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+}
+
+.teamy__back{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    opacity: 0;
+    will-change: opacity;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.teamy:hover .teamy__back{
+  opacity: 1;
+  height: 100%;
+  transition: opacity .4s cubic-bezier(0.71, 0.05, 0.29, 0.9) .2s;
+}
+
+.teamy__name{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.teamy__post{
+    display: block;
+}
+
+/*
+ * 2. visual styles
+ */
+
+/* common styles for visual styles */
+
+ .teamy__back{
+     padding-left: 10px;
+     padding-right: 10px;
+     text-align: center;
+ }
+
+.teamy__content{
+     padding: 20px;
+}
+
+.teamy__name{
+    font-size: 1.3em;
+}
+
+.teamy__post{
+    margin-top: .5em;
+    font-size: .8em;
+    text-transform: uppercase;
+}
+
+/* style 1 */
+
+.teamy_style1{
+    text-align: center;
+}
+
+/* style 2 */
+
+.teamy_style2 .teamy__content{
+    width: 100%;
+    box-sizing: border-box;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 4;
+}
+
+.teamy_style2 .teamy__name{
+    font-weight: 400;
+}
+
+/* style 2 */
+
+.teamy_style3 .teamy__name{
+    font-size: 2em;
+}
+
+/*
+ * 3. masks
+ */
+
+/* mask circle */
+
+.teamy_mask-circle .teamy__preview:before{
+    width: 0;
+    height: 0;
+    padding: 25%;
+    border-radius: 50%;
+
+    transition: transform .3s ease, opacity .3s ease-out;
+    will-change: opacity, transform;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.teamy_mask-circle:hover .teamy__preview:before{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(4);
+    transition-duration: .6s;
+}
+
+/* mask triangle */
+
+.teamy_mask-triangle .teamy__preview:before{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+    -webkit-clip-path: polygon(50% 10%, 15% 90%, 85% 90%);
+    clip-path: polygon(50% 10%, 15% 90%, 85% 90%);
+
+    transition-property: transform, opacity;
+    transition-duration: .2s, .4s;
+    transition-delay: .4s, 0s;
+    transition-timing-function: ease-out;
+
+    will-change: transform, opacity;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.teamy_mask-triangle:hover .teamy__preview:before{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(5);
+    transition-delay: .1s, 0s;
+    transition-duration: .4s;
+}
+
+/*
+ * 4. animations for preview
+ */
+
+/* zoom */
+
+.teamy_zoom-photo .teamy__avatar{
+    transition: transform .4s cubic-bezier(0.71, 0.05, 0.29, 0.9);
+    will-change: transform;
+    transform: scale(1);
+}
+
+.teamy_zoom-photo:hover .teamy__avatar{
+    transform: scale(1.2);
+}
+
+/* zoom and rotate */
+
+.teamy_zoom-rotate-photo .teamy__avatar{
+    transition: transform .4s cubic-bezier(0.71, 0.05, 0.29, 0.9);
+    will-change: transform;
+    transform: scale(1) rotate(0);
+}
+
+.teamy_zoom-rotate-photo:hover .teamy__avatar{
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* zoom and slide */
+
+.teamy_zoom-slide-photo .teamy__avatar{
+    transition: transform .4s cubic-bezier(0.71, 0.05, 0.29, 0.9);
+    will-change: transform;
+    transform: scale(1) translate(0, 0);
+}
+
+.teamy_zoom-slide-photo:hover .teamy__avatar{
+    transform: scale(1.2) translate(4%, 4%);
+}
+
+/*
+ * 5. default skin
+ */
+
+.teamy__preview:before{
+    background-color: rgba(72, 27, 174, .7);
+}
+
+.teamy_style2, .teamy_style3{
+    color: #fff;
+}
+
+.teamy_style2 .teamy__content{
+    background-color: rgba(72, 27, 174, .85);
+}
+
+
+/*
+* demo page
+*/
+
+@media screen and (min-width: 768px){
+
+  html{
+    font-size: 62.5%;
+  }
+}
+
+@media screen and (max-width: 767px){
+
+  html{
+    font-size: 50%;
+  }
+}
+
+body{
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+  font-size: 1.6rem;
+  color: #222;
+  
+  margin: 0;
+  -webkit-overflow-scrolling: touch;   
+  overflow-y: scroll;
+}
+
+:root{
+    --colorBlack: #222;
+    --colorWhite: #fff;
+    --colorGray: #f0f0f0;
+
+    --colorAlternative: #a03549;
+    --colorAlternativeDark: #650813;
+}
+
+.title{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.page{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.page__demo{
+  flex-grow: 1;
+}
+
+
+
+
+/* layout */
+
+.main-container{
+    max-width: 1400px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section:nth-of-type(even){
+	background-color: var(--colorGray);
+}
+
+.section__header{
+	position: relative;
+	padding-bottom: 2rem;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.section__header:before{
+	content: "";
+	width: 5rem;
+	height: 3px;
+	background-color: var(--colorAlternative);
+
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.section__title{
+	font-size: 2.8rem;
+}
+
+.section__hint{
+	font-size: 1.4rem;
+	display: block;
+	margin-top: 1rem;
+}
+
+.section__content{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+
+@media screen and (min-width: 641px){
+
+	.section{
+		padding-top: 8rem;
+		padding-bottom: 8rem;
+	}
+
+	.section__header{
+		margin-bottom: 6rem;
+	}
+
+	.section__content{
+		justify-content: center;
+	}
+}
+
+@media screen and (max-width: 640px){
+
+	.section{
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+	}
+
+	.section__header{
+		margin-bottom: 3rem;
+	}
+}
+
+/* options */ 
+
+.radio{
+    position: absolute;
+    left: -9999px;
+}
+
+.preview-options{
+    padding-top: 2rem;
+}
+
+.preview-options__container{
+    display: flex;
+    justify-content: center;
+}
+
+.preview-options__param{
+    display: inline-block;
+    cursor: pointer;
+}
+
+.preview-options__param:not(:last-child){
+    margin-right: 1.5rem;
+}
+
+.preview-options__color:before{
+    content: "";
+    width: 3.2rem;
+    height: 3.2rem;
+    display: block;
+    border-radius: 50%;
+}
+
+.preview-options__color:after{
+    content: "";
+    width: 75%;
+    height: 3px;
+    display: block;
+    margin: 1rem auto 0;
+}
+
+.preview-options__color_black:before,
+#black:checked ~ .preview-options .preview-options__color_black:after{
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.preview-options__color_purple:before,
+#purple:checked ~ .preview-options .preview-options__color_purple:after{
+    background-color: rgba(72, 27, 174, 1);
+}
+
+.preview-options__color_blue:before,
+#blue:checked ~ .preview-options .preview-options__color_blue:after{
+    background-color: rgba(80, 126, 209, 1);
+}
+
+.preview-options__color_green:before,
+#green:checked ~ .preview-options .preview-options__color_green:after{
+    background-color: rgba(27, 188, 155, 1);
+}
+
+.preview-options__color_red:before,
+#red:checked ~ .preview-options .preview-options__color_red:after{
+    background-color: rgba(160, 53, 73, 1);
+}
+
+#black:checked ~ .section .teamy{
+    --demoColorMask: rgba(0, 0, 0, .7);
+    --demoColorContent: rgba(0, 0, 0, .85);
+    --demoColorIcon: rgba(0, 0, 0, 1);
+}
+
+#blue:checked ~ .section .teamy{
+    --demoColorMask: rgba(80, 126, 209, .7);
+    --demoColorContent: rgba(80, 126, 209, .85);
+    --demoColorIcon: rgba(80, 126, 209, 1);
+}
+
+#green:checked ~ .section .teamy{
+    --demoColorMask: rgba(42, 155, 132, .7);
+    --demoColorContent: rgba(42, 155, 132, .85);
+    --demoColorIcon: rgba(42, 155, 132, 1);
+}
+
+#red:checked ~ .section .teamy{
+    --demoColorMask: rgba(160, 53, 73, .7);
+    --demoColorContent: rgba(160, 53, 73, .85);
+    --demoColorIcon: rgba(160, 53, 73, 1);
+}
+
+/* demo params */
+
+.teamy__preview:before{
+    background-color: var(--demoColorMask, rgba(72, 27, 174, .7));
+}
+
+.teamy_style2 .teamy__content{
+    background-color: var(--demoColorContent, rgba(72, 27, 174, .85));
+}
+
+/* social buttons */
+
+.social{
+    box-sizing: border-box;
+    width: 42px;
+    height: 42px;
+    padding: 10px;
+
+    background-color: #fff;
+    border-radius: 100%;
+
+    margin: 5px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.social__icon{
+    width: 100%;
+    height: 100%;
+    fill: rgba(72, 27, 174, 1);
+    fill: var(--demoColorIcon, rgba(72, 27, 174, 1));  
+}
+
+.social__name{
+    position: absolute;
+    left: -9999px;
+}
+
+@media screen and (max-width: 640px){
+
+    .preview-options{
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--colorGray);
+    }
+}
+
+@media screen and (min-width: 641px){
+
+    .preview-options{
+        background-color: var(--colorGray);
+    }
+}
+
+/* grid */
+
+.teamy-team{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media screen and (min-width: 849px){
+
+     .teamy{
+         width: 25%;
+     }
+}
+
+@media screen and (min-width: 425px) and (max-width: 848px){
+
+     .teamy{
+         width: 50%;
+     }
+}
+
+@media screen and (max-width: 424px){
+
+     .teamy{
+         width: 100%;
+     }
+
+     .teamy:not(:first-child){
+         margin-top: 3rem;
+     }
+}
+nav.navbar{
+  padding: 0 20px;
+  background: #787878;
+}
+nav.navbar .navbar-brand{
+  font-family: 'Sofia';font-size: 27px;
+  color: #fff;
+  font-weight: bolder;
+  padding: 0px;
+}
+nav.navbar ul li{
+			min-width: 80px;
+      text-align: center;
+  padding: 10px;
+		}
+nav.navbar ul li.nav-item a.nav-link{
+  color: white;
+  padding-top: 10px;
+}
+
+		.active{
+			background-color: DodgerBlue;
+			position: relative;
+		}
+		nav.navbar li.nav-item.active a.nav-link{
+			color: #fff;
+      transition: all 0.75s;
+		}
+		.active::after{
+		    content: "";
+		    position: absolute;
+		    width: 100%;
+		    height: 0px;
+		    border-style: solid;
+		    border-width: 27px 41px 0px 40px;
+		    border-color:  DodgerBlue transparent transparent transparent;
+		    transition: all 0.75s;
+      left: 0;
+		}
+footer {
+  background: #222;
+  color: #aaa;
+  padding-top: 10px;
+}
+
+footer a {
+  color: #aaa;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+footer h3 {
+ color: #0894d1;
+  letter-spacing: 1px;
+  margin: 30px 0 20px;
+}
+
+footer .three-column {
+ overflow: hidden;
+}
+
+footer .three-column li{
+ width: 33.3333%;
+  float: left;
+  padding: 5px 0;
+}
+
+footer .socila-list {
+  overflow: hidden;
+  margin: 20px 0 10px;
+}
+
+footer .socila-list li {
+  float: left;
+  margin-right: 3px;
+  opacity: 0.7;
+  overflow: hidden;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+footer .img-thumbnail {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid #444;
+  margin-bottom: 5px;
+}
+
+footer .copyright {
+  padding: 15px 0;
+  background: #333;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+footer .copyright span {
+  color: #0894d1;
+}
+
+.fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+ 
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-envelope {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+.center{
+    display: block;
+    text-align: right;
+}
+
+
+
+</style>
+
+<body>
+
+<!------ Include the above in your HEAD tag ---------->
+<nav class="navbar navbar-expand-lg navbar-light">
+        <img src="assets/images/logo.png" height="65px" width="75px"/>
+        <a class="navbar-brand" href="#">हिन्दी प्रकोष्ठ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">
+  मुख्य पृष्ठ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pk">
+  सदस्य</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">
+  संपर्क </a>
+           
+          </ul>
+        </div>
+      </nav>
+  
+  
+    <header class="jumbotron ">
+      <div class="container">
+            <img src="assets/images/smvdu.png" height="125px" width="125px" alt="logo" class="center">
+        <h1>
+  समिति-सदस्य</h1>
+        <h3>हिन्दी प्रकोष्ठ</h3>
+        <p>श्री माता वैष्णो देवी विश्वविद्यालय, कटरा</p>
+       
+      <a class="btn btn-primary btn-lg " href="#pk" role="button">और अधिक जानें</a>
+   
+      </div>
+  
+    </header>
+  
+  <div class="page">
+    <div class="page__demo">
+      <svg width="26" height="28" style="display: none;">
+        <symbol id="twitter" viewBox="0 0 26 28">
+          <path d="M25.312 6.375c-0.688 1-1.547 1.891-2.531 2.609 0.016 0.219 0.016 0.438 0.016 0.656 0 6.672-5.078 14.359-14.359 14.359-2.859 0-5.516-0.828-7.75-2.266 0.406 0.047 0.797 0.063 1.219 0.063 2.359 0 4.531-0.797 6.266-2.156-2.219-0.047-4.078-1.5-4.719-3.5 0.313 0.047 0.625 0.078 0.953 0.078 0.453 0 0.906-0.063 1.328-0.172-2.312-0.469-4.047-2.5-4.047-4.953v-0.063c0.672 0.375 1.453 0.609 2.281 0.641-1.359-0.906-2.25-2.453-2.25-4.203 0-0.938 0.25-1.797 0.688-2.547 2.484 3.062 6.219 5.063 10.406 5.281-0.078-0.375-0.125-0.766-0.125-1.156 0-2.781 2.25-5.047 5.047-5.047 1.453 0 2.766 0.609 3.687 1.594 1.141-0.219 2.234-0.641 3.203-1.219-0.375 1.172-1.172 2.156-2.219 2.781 1.016-0.109 2-0.391 2.906-0.781z"></path>
+        </symbol>
+        <symbol id="codepen" viewBox="0 0 28 28">
+          <path d="M3.375 18.266l9.422 6.281v-5.609l-5.219-3.484zM2.406 16.016l3.016-2.016-3.016-2.016v4.031zM15.203 24.547l9.422-6.281-4.203-2.812-5.219 3.484v5.609zM14 16.844l4.25-2.844-4.25-2.844-4.25 2.844zM7.578 12.547l5.219-3.484v-5.609l-9.422 6.281zM22.578 14l3.016 2.016v-4.031zM20.422 12.547l4.203-2.812-9.422-6.281v5.609zM28 9.734v8.531c0 0.391-0.203 0.781-0.531 1l-12.797 8.531c-0.203 0.125-0.438 0.203-0.672 0.203s-0.469-0.078-0.672-0.203l-12.797-8.531c-0.328-0.219-0.531-0.609-0.531-1v-8.531c0-0.391 0.203-0.781 0.531-1l12.797-8.531c0.203-0.125 0.438-0.203 0.672-0.203s0.469 0.078 0.672 0.203l12.797 8.531c0.328 0.219 0.531 0.609 0.531 1z"></path>
+        </symbol>
+        <symbol id="linkedin" viewBox="0 0 24 28">
+          <path d="M5.453 9.766v15.484h-5.156v-15.484h5.156zM5.781 4.984c0.016 1.484-1.109 2.672-2.906 2.672v0h-0.031c-1.734 0-2.844-1.188-2.844-2.672 0-1.516 1.156-2.672 2.906-2.672 1.766 0 2.859 1.156 2.875 2.672zM24 16.375v8.875h-5.141v-8.281c0-2.078-0.75-3.5-2.609-3.5-1.422 0-2.266 0.953-2.641 1.875-0.125 0.344-0.172 0.797-0.172 1.266v8.641h-5.141c0.063-14.031 0-15.484 0-15.484h5.141v2.25h-0.031c0.672-1.062 1.891-2.609 4.672-2.609 3.391 0 5.922 2.219 5.922 6.969z"></path>
+        </symbol>
+      </svg>
+      <input id="purple" class="radio radio_color" type="radio" name="color" checked>
+      <input id="black" class="radio radio_color" type="radio" name="color">
+      <input id="blue" class="radio radio_color" type="radio" name="color">
+      <input id="green" class="radio radio_color" type="radio" name="color">
+      <input id="red" class="radio radio_color" type="radio" name="color">
+      <div class="preview-options">
+        <div class="main-container preview-options__container">
+          <label for="purple" class="preview-options__param preview-options__color preview-options__color_purple"></label>
+          <label for="black" class="preview-options__param preview-options__color preview-options__color_black"></label>
+          <label for="blue" class="preview-options__param preview-options__color preview-options__color_blue"></label>
+          <label for="green" class="preview-options__param preview-options__color preview-options__color_green"></label>
+          <label for="red" class="preview-options__param preview-options__color preview-options__color_red"></label>
+        </div>
+      </div>
+  
+      <!-- type1 -->
+      <!-- teamy_mask-circle -->
+  
+      <section class="section" id="pk">
+        <div class="main-container">
+          <header class="section__header">
+            <h2 class="title section__title">Style 1</h2>
+            <span class="section__hint">mask 1</span>
+          </header>
+          <div class="section__content teamy-team">
+            <article class="teamy teamy_style1 teamy_mask-circle">
+              <div class="teamy__layout">
+                <div class="teamy__preview">
+                  <img src="https://res.cloudinary.com/djnxdb9dr/image/upload/v1549907097/IMG_20181222_013104_1.jpg" class="teamy__avatar" alt="The demo photo">
+                </div>
+                <div class="teamy__back">
+                  <div class="teamy__back-inner">
+                    <a href="#0" class="social">
+                      <svg class="social__icon"><use xlink:href="#twitter"></use></svg>
+                      <span class="social__name">Twitter</span>
+                    </a>
+                    <a href="#0" class="social">
+                      <svg class="social__icon"><use xlink:href="#codepen"></use></svg>
+                      <span class="social__name">Codepen</span>
+                    </a>
+                    <a href="#0" class="social">
+                      <svg class="social__icon"><use xlink:href="#linkedin"></use></svg>
+                      <span class="social__name">LinkedIn</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="teamy__content">
+                <h3 class="teamy__name">Suzan Lois</h3>
+                <span class="teamy__post">Graphic Designer</span>
+              </div>
+            </article>
+            <article class="teamy teamy_style1 teamy_mask-circle teamy_zoom-photo">
+              <div class="teamy__layout">
+                <div class="teamy__preview">
+                  <img src="data:image/jpeg;base64,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"   class="teamy__avatar" alt="The demo photo">
+                </div>
+                <div class="teamy__back">
+                  <div class="teamy__back-inner">
+                    <a href="#0" class="social">
+                      <svg class="social__icon"><use xlink:href="#twitter"></use></svg>
+                      <span class="social__name">Twitter</span>
+                    </a>
+                    <a href="#0" class="social">
+                      <svg class="social__icon"><use xlink:href="#codepen"></use></svg>
+                      <span class="social__name">Codepen</span>
+                    </a>
+                    <a href="#0" class="social">
+                      <svg class="social__icon"><use xlink:href="#linkedin"></use></svg>
+                      <span class="social__name">LinkedIn</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="teamy__content">
+                <h3 class="teamy__name">Dora Caelan</h3>
+                <span class="teamy__post">HR-manager</span>
+              </div>
+            </article>
+            <article class="teamy teamy_style1 teamy_mask-circle teamy_zoom-rotate-photo">
+              <div class="teamy__layout">
+                <div class="teamy__preview">
+                  <img src="https://res.cloudinary.com/djnxdb9dr/image/upload/v1549907097/IMG_20181222_013104_1.jpg" class="teamy__avatar" alt="The demo photo">
+                </div>
+                <div class="teamy__back">
+                  <div class="teamy__back-inner">
+                    <a href="#0" class="social">
+                      <svg class="social__icon"><use xlink:href="#twitter"></use></svg>
+                      <span class="social__name">Twitter</span>
+                    </a>
+                    <a href="#0" class="social">
+                      <svg class="social__icon"><use xlink:href="#codepen"></use></svg>
+                      <span class="social__name">Codepen</span>
+                    </a>
+                    <a href="#0" class="social">
+                      <svg class="social__icon"><use xlink:href="#linkedin"></use></svg>
+                      <span class="social__name">LinkedIn</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="teamy__content">
+                <h3 class="teamy__name">Rosanna Pattie</h3>
+                <span class="teamy__post">Illustrator</span>
+              </div>
+            </article>
+            <article class="teamy teamy_style1 teamy_mask-circle teamy_zoom-slide-photo">
+              <div class="teamy__layout">
+                <div class="teamy__preview">
+                  <img src="https://stas-melnikov.ru/cliparts/girl5_424x640.jpg" class="teamy__avatar" alt="The demo photo">
+                </div>
+                <div class="teamy__back">
+                  <div class="teamy__back-inner">
+                    <a href="#0" class="social">
+                      <svg class="social__icon"><use xlink:href="#twitter"></use></svg>
+                      <span class="social__name">Twitter</span>
+                    </a>
+                    <a href="#0" class="social">
+                      <svg class="social__icon"><use xlink:href="#codepen"></use></svg>
+                      <span class="social__name">Codepen</span>
+                    </a>
+                    <a href="#0" class="social">
+                      <svg class="social__icon"><use xlink:href="#linkedin"></use></svg>
+                      <span class="social__name">LinkedIn</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="teamy__content">
+                <h3 class="teamy__name">Rose Alpha</h3>
+                <span class="teamy__post">Photographer</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+  
+      <!-- type1 -->
+      <!-- teamy_mask-triangle -->
+  
+      
+        </div>
+      </section>
+    </div>
+    <footer id="contact">
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-lg-4 col-md-6">
+          <h3>संक्षिप्त विवरण</h3>
+          <ul class="list-unstyled three-column">
+            <li><a href="https://www.rajbhasha.nic.in/">हिंदी परिचय</a></li>
+            <li>हिंदी प्रकोष्ठ</li>
+            <li>विशेषताएं</li>
+            
+            <li>संपर्क</li>
+            <li><a href="https://www.smvdu.ac.in/" target="_blank">विश्वविद्यालय</a></li>
+          </ul>
+          <ul class="list-unstyled socila-list">
+            <li><a href="#" class="fa fa-facebook"></a></li>
+            <li><a href="#" class="fa fa-twitter"></a></li>
+            <li> <a href="#" class="fa fa-linkedin"></a></li>
+            <li><a href="#" class="fa fa-instagram"></a></li>
+            <li><a href="#" class="fa fa-envelope"></a></li>
+           
+          </ul>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+          <h3>ताज़ा लेख</h3>
+          <div class="media">
+            <a href="#" class="pull-left">
+                          <img src="https://res.cloudinary.com/djnxdb9dr/image/upload/c_scale,h_64,w_64/v1566073115/Hindi_Poster_2.jpg" alt="" class="media-object" />
+  
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">हिंदी पखवाड़ा</h4>
+              <p> हिंदी पखवाड़ा हर वर्ष १४ सितंबर से २८ सितंबर अथवा १ सितंबर से १४ सितंबर तक मनाया जाता है।</p>
+            </div>
+          </div>
+          
+          <div class="media">
+            <a href="#" class="pull-left">
+              <img src="https://res.cloudinary.com/djnxdb9dr/image/upload/c_scale,h_64,w_64/v1566073115/image.png" alt="" class="media-object" />
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">विश्व हिंदी दिवस</h4>
+              <p>विश्व हिन्दी दिवस प्रति वर्ष 10 जनवरी को मनाया जाता है।</p>
+            </div>
+          </div>
+          
+          <div class="media">
+            <a href="#" class="pull-left">
+  <img src="https://res.cloudinary.com/djnxdb9dr/image/upload/c_scale,h_64,w_64/v1566073888/IMG_20190330_073450.jpg" alt="">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">अन्तरराष्ट्रीय योग दिवस</h4>
+              <p>अन्तरराष्ट्रीय योग दिवस 21 जून को मनाया जाता है।</p>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div class="col-lg-4">
+          <h3>Our Work</h3>
+          <img class="img-thumbnail" src="https://res.cloudinary.com/djnxdb9dr/image/upload/c_scale,h_100,w_150/v1566073884/IMG_20190330_073748.jpg" alt="" />
+          <img class="img-thumbnail" src="https://res.cloudinary.com/djnxdb9dr/image/upload/c_scale,h_100,w_150/v1566073112/news.jpg" alt="" />
+          <img class="img-thumbnail" src="https://res.cloudinary.com/djnxdb9dr/image/upload/c_scale,h_100,w_150/v1566073111/42734819_1758773860911477_8728199553582366720_n_1.jpg" alt="" />
+          <img class="img-thumbnail" src="https://res.cloudinary.com/djnxdb9dr/image/upload/c_scale,w_150/v1566081892/DSC_0230.jpg" alt="" />
+        </div>
+        
+      </div>
+    </div>
+    <div class="copyright text-center">
+      Copyright &copy; 2019 <span>Your Template Name</span>
+    </div>
+  </footer>
+  <script>
+  $(function(){
+    		$("nav.navbar ul li").click(function(){
+    				$("nav.navbar ul li").removeClass("active");
+    				$(this).addClass("active");
+    			
+    			
+    		});
+    	});
+  </script>
+    
+</body>
+</html>

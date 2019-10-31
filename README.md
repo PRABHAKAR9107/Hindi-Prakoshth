@@ -22,7 +22,7 @@ ________________________________________________________________________________
 
 #### **LOGO**
 
-![Hindi Cell}(assets/images/logo.pngheight="100px" width="125px)
+![Hindi Cell](assets/images/logo.pngheight="100px" width="125px)
 
 
 

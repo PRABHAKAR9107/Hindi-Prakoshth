@@ -24,7 +24,8 @@ ________________________________________________________________________________
 
 
 
-### **Hindi Cell SMVDU Website link [Hindi Cell] (http://hindicell.smvdu.ac.in/)**
+### **Hindi Cell SMVDU Website link:-
+[Hindi Cell SMVDU](http://hindicell.smvdu.ac.in/)**
 
 
 

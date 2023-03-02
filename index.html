@@ -40,9 +40,9 @@
 
 <body data-spy="scroll" data-target=".navbar-collapse">
 
-    <div class='preloader'>
+    <!-- <div class='preloader'>
         <div class='loaded'>&nbsp;</div>
-    </div>
+    </div> -->
     <div class="culmn">
         <header id="main_menu" class="header navbar-fixed-top">
             <div class="main_menu_bg">
@@ -289,70 +289,64 @@
                                     विश्वविद्यालय हिंदी प्रकोष्ठ की स्थापना सभी संबंधितों की जानकारी के लिए यहाँ दी गई
                                     है। </p>
                                 <!-- ///////// -->
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-lg" data-toggle="modal"
-                                    data-target="#exampleModalCenter">
-                                    विस्तृत जानकारी
-                                </button>
+                                <button id="modal-btn" class="btn btn-lg">विस्तृत जानकारी- हिन्दी प्रकोष्ठ</button>
+                                <div id="my-modal" class="modal">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <span class="close">&times;</span>
+                                            <h2>विस्तृत जानकारी</h2>
+                                        </div>
+                                        <div class="modal-body">
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModalCenter" role="dialog"
-                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h2 class="modal-title" id="exampleModalLongTitle">विस्तृत जानकारी</h2>
 
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                श्री माता वैष्णो देवी विश्वविद्यालय में हिन्दी प्रकोष्ठ की स्थापना का
-                                                निर्णय यूजीसी के निर्देशों के अनुपालन में विश्वविद्यालय कार्यकारी परिषद्
-                                                द्वारा इसकी 34वीं बैठक में 23.11.2015 को लिया गया। इसके क्रियान्वयन की
-                                                अधिसूचना 15.02.2016 को निर्गत की गयी। इसके तहत दर्शन एवं संस्कृति विभाग
-                                                के सहायक आचार्य डॉ० अनिल कुमार तिवारी को समन्वयक / नोडल अधिकारी नियुक्त
-                                                किया गया। हिन्दी प्रकोष्ठ के निम्नलिखित उद्देश्य और दायित्व निर्धारित
-                                                किए गए:
-                                                <br>
-                                                <br>
-                                                <br>
+                                            श्री माता वैष्णो देवी विश्वविद्यालय में हिन्दी प्रकोष्ठ की स्थापना का
+                                            निर्णय यूजीसी के निर्देशों के अनुपालन में विश्वविद्यालय कार्यकारी परिषद्
+                                            द्वारा इसकी 34वीं बैठक में 23.11.2015 को लिया गया। इसके क्रियान्वयन की
+                                            अधिसूचना 15.02.2016 को निर्गत की गयी। इसके तहत दर्शन एवं संस्कृति विभाग
+                                            के सहायक आचार्य डॉ० अनिल कुमार तिवारी को समन्वयक / नोडल अधिकारी नियुक्त
+                                            किया गया। हिन्दी प्रकोष्ठ के निम्नलिखित उद्देश्य और दायित्व निर्धारित
+                                            किए गए:
+                                            <br>
+                                            <br>
+                                            <br>
 
-                                                1. कार्यालय और विद्यार्थियों से संबन्धित सूचनाओं को हिन्दी माध्यम से
-                                                करने को बढ़ावा देना,
-                                                <br>
-                                                2. विद्यार्थियों को हिंदी में सीखने और बातचीत करने के लिए तथा राष्ट्रीय
-                                                स्तर की वाद-विवाद /भाषण, निबंध लेखन आदि प्रतियोगिताओं में भाग लेने के
-                                                लिए प्रोत्साहित करना,
-                                                <br>
-                                                3. पुस्तकालय में सामान्य अभिरुचि पठन अनुभाग के लिए महत्वपूर्ण और
-                                                प्रसिद्ध हिंदी पुस्तकें / साहित्य और हिंदी पत्र-पत्रिकाओं को खरीदना और
-                                                सदस्यता लेना,
-                                                <br>
-                                                4. समाचार पत्र, छात्र पत्रिका आदि जैसे संस्थागत प्रकाशनों में हिंदी
-                                                लेखों का प्रकाशन,
-                                                <br>
-                                                5. हिन्दी में संगोष्ठी / वाद-विवाद / लोकप्रिय व्याख्यान आदि आयोजित करना,
+                                            1. कार्यालय और विद्यार्थियों से संबन्धित सूचनाओं को हिन्दी माध्यम से
+                                            करने को बढ़ावा देना,
+                                            <br>
+                                            2. विद्यार्थियों को हिंदी में सीखने और बातचीत करने के लिए तथा राष्ट्रीय
+                                            स्तर की वाद-विवाद /भाषण, निबंध लेखन आदि प्रतियोगिताओं में भाग लेने के
+                                            लिए प्रोत्साहित करना,
+                                            <br>
+                                            3. पुस्तकालय में सामान्य अभिरुचि पठन अनुभाग के लिए महत्वपूर्ण और
+                                            प्रसिद्ध हिंदी पुस्तकें / साहित्य और हिंदी पत्र-पत्रिकाओं को खरीदना और
+                                            सदस्यता लेना,
+                                            <br>
+                                            4. समाचार पत्र, छात्र पत्रिका आदि जैसे संस्थागत प्रकाशनों में हिंदी
+                                            लेखों का प्रकाशन,
+                                            <br>
+                                            5. हिन्दी में संगोष्ठी / वाद-विवाद / लोकप्रिय व्याख्यान आदि आयोजित करना,
 
-                                                <br>
+                                            <br>
 
-                                                6. हिंदी में अनुवाद, ऑनलाइन सामग्री का निर्माण आदि को प्रोत्साहित करें,
-                                                नाटक, नुक्कड़ नाटक, एकांकी आदि जैसे थिएटर कार्यक्रमों का आयोजन,
-                                                <br>
-                                                7. चर्चा करें और गतिविधियों का एक कैलेंडर तैयार करें और पुरस्कारों का
-                                                प्रस्ताव भी दें,
-                                                <br>
-                                                8. हिंदी के प्रचार के लिए किसी अन्य स्वीकृत गतिविधि का क्रियान्वयन करें।
-                                                <br>
-                                                धन्यवाद ! <br>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-lg" data-dismiss="modal">बंद
-                                                    करें</button>
-
-                                            </div>
+                                            6. हिंदी में अनुवाद, ऑनलाइन सामग्री का निर्माण आदि को प्रोत्साहित करें,
+                                            नाटक, नुक्कड़ नाटक, एकांकी आदि जैसे थिएटर कार्यक्रमों का आयोजन,
+                                            <br>
+                                            7. चर्चा करें और गतिविधियों का एक कैलेंडर तैयार करें और पुरस्कारों का
+                                            प्रस्ताव भी दें,
+                                            <br>
+                                            8. हिंदी के प्रचार के लिए किसी अन्य स्वीकृत गतिविधि का क्रियान्वयन करें।
+                                            <br>
+                                            धन्यवाद ! <br>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button id="modalbutton" class="btn btn-lg">बंद करें </button>
                                         </div>
                                     </div>
                                 </div>
+
+
+
+
                                 <!-- //////// -->
                                 <a href="https://res.cloudinary.com/djnxdb9dr/image/upload/a_90/v1562325310/New_Doc_2019-05-24_17.12.08_1.jpg"
                                     target="_blank" class="btn btn-lg">आधिकारिक अधिसूचना</a>
@@ -845,13 +839,14 @@
                             </div><!-- End off Head_title -->
 
                             <div class="col-sm-3 col-xs-6 ">
-                                <a href=""><img src="assets/images/smvdu.png" alt="" /></a>
+                                <a href="https://www.smvdu.ac.in/"><img src="assets/images/smvdu.png" alt="" /></a>
                             </div>
                             <div class="col-sm-3 col-xs-6 ">
-                                <a href=""><img src="assets/images/vikalp.jpeg" alt="" /></a>
+                                <a href="http://vikalp.smvdu.ac.in/"><img src="assets/images/vikalp.jpeg" alt="" /></a>
                             </div>
                             <div class="col-sm-3 col-xs-6">
-                                <a href=""><img src="assets/images/tbic_logo.jpeg" alt="" /></a>
+                                <a href="https://www.smvdu.ac.in/index.php/accreditation/infrastructure-gallery/tbic"><img
+                                        src="assets/images/tbic_logo.jpeg" alt="" /></a>
                             </div>
                             <div class="col-sm-3 col-xs-6">
                                 <a href=""><img
@@ -865,7 +860,7 @@
                 <div class="divider"></div>
             </section><!-- End off clogo Section -->
             <!--map-loader-->
-            <div style="width: 60%"><iframe width="100%" height="638"
+            <div style="width: 60%"><iframe class="mapincmap" width="100%" height="638"
                     src="https://maps.google.com/maps?width=100%&amp;height=318&amp;hl=en&amp;coord=32.9422656,74.9539507841773&amp;q=Shri%20Mata%20Vaishno%20Devi%20University%20-%20SMVDU%2C%20university%2C%20India+(%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80%20%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%95%E0%A5%8B%E0%A4%B7%E0%A5%8D%E0%A4%A0)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
                     frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a
                         href="https://www.maps.ie/map-my-route/">Create a route on google maps</a></iframe></div><br />
@@ -883,10 +878,13 @@
                             <div class="row">
                                 <div class="col-sm-6 col-xs-12">
                                     <div class="flowus">
-                                        <a href=""><i class="fa fa-facebook"></i></a>
-                                        <a href=""><i class="fa fa-twitter"></i></a>
-                                        <a href=""><i class="fa fa-envelope-o"></i></a>
-                                        <a href=""><i class="fa fa-instagram"></i></a>
+                                        <a href="http://www.facebook.com/smvduniversity"><i
+                                                class="fa fa-facebook"></i></a>
+                                        <a href="https://www.youtube.com/@hindicellsmvdu"><i
+                                                class="fa fa-youtube"></i></a>
+                                        <a href="hindi.cell@smvdu.ac.in"><i class="fa fa-envelope-o"></i></a>
+                                        <a href="http://www.instagram.com/smvduniversityofficial"><i
+                                                class="fa fa-instagram"></i></a>
 
 
                                     </div>
@@ -900,7 +898,7 @@
                                                 प्रभाकर कुमार बंसल</a>एवं <a
                                                 href="https://www.linkedin.com/in/rounit08/" target="_blank">
                                                 रौनित रंजन
-                                                सिन्हा</a>
+                                                सिन्हा</a><br>
                                             प्रतिलिप्यधिकार द्वारा
                                             सुरक्षित</p>
                                     </div>
@@ -948,6 +946,33 @@
 
     <!--js Code for qoute-->
     <script>
+        const modal = document.querySelector('#my-modal');
+        const modalBtn = document.querySelector('#modal-btn');
+        const closeBtn = document.querySelector('#modalbutton');
+
+        // Events
+        modalBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', outsideClick);
+
+        // Open
+        function openModal() {
+            modal.style.display = 'block';
+        }
+
+        // Close
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // Close If Outside Click
+        function outsideClick(e) {
+            if (e.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+
         var slideIndex = 1;
         showSlides(slideIndex);
 

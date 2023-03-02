@@ -3,5 +3,6 @@
         "activityBar.background": "#2C3016",
         "titleBar.activeBackground": "#3E431F",
         "titleBar.activeForeground": "#FAFBF6"
-    }
+    },
+    "vscode-corda.isCordaProject": false
 }

@@ -360,6 +360,7 @@ Separator
 /*section:nth-of-type(odd) {
     background-color: #F9F9F9;
 }*/
+
 /*
 Button
 */
@@ -1521,6 +1522,9 @@ li .single_team_text p {
   padding: 20px 0px;
 }
 
+.main_footer .flowus {
+  color: white;
+}
 .main_footer .flowus a i {
   color: #fff;
   font-size: 1rem;
@@ -1814,9 +1818,10 @@ body {
 .tabs label:before {
   font-family: fontawesome;
   font-weight: normal;
-  margin-right: 10px;
+  margin-right: 0px;
+  font-size: 10px;
 }
-
+/* 
 .tabs label[for*="1"]:before {
   content: "\f0c0 ";
 }
@@ -1831,7 +1836,7 @@ body {
 
 .tabs label[for*="4"]:before {
   content: "\f1a9";
-}
+} */
 
 .tabs label:hover {
   color: #888;
@@ -1854,7 +1859,12 @@ body {
 
 @media screen and (max-width: 650px) {
   .tabs label {
-    font-size: 0;
+    font-size: 10px;
+  }
+
+  #kalamimage {
+    margin-top: 50px;
+    margin-left: 85px;
   }
 
   .tabs label:before {
@@ -1865,6 +1875,12 @@ body {
 @media screen and (max-width: 400px) {
   .tabs label {
     padding: 15px;
+  }
+}
+@media screen and (max-width: 460px) {
+  .tabs label {
+    padding: 5px;
+    color: black;
   }
 }
 
@@ -1887,6 +1903,6 @@ body {
 
 @media (max-width: 596px) {
   .center {
-    margin-left: 480px;
+    margin-left: 500px;
   }
 }

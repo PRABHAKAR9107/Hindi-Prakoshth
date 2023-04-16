@@ -594,22 +594,48 @@
 
   }
 
-  /* desktop */
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1025px) and (max-width: 1600px) {
     .images {
-      width: 1000px;
-      height: 1300px;
+      width: 250px;
+      height: 720px;
+      margin-left: 25%;
     }
 
     .jumbotron {
-      width: 1905px;
+      width: 1500px;
       height: 350px;
     }
 
-    .jumbotron img {
-      margin-left: 480px;
 
+
+    .jumbotron h1 {
+      margin-left: 380px;
+      margin-top: 20px;
     }
+
+    .jumbotron h3 {
+      margin-left: 480px;
+    }
+
+    .jumbotron p {
+      margin-left: 390px;
+    }
+
+  }
+
+  @media only screen and (min-width: 980px) and (max-width: 1024px) {
+
+    .images {
+      width: 250px;
+      height: 720px;
+    }
+
+    .jumbotron {
+      width: 1020px;
+      height: 350px;
+    }
+
+
 
     .jumbotron h1 {
       margin-left: 380px;
@@ -625,11 +651,14 @@
     }
   }
 
+  /* desktop */
+  /* @media only screen and (min-width: 768px) {} */
+
   /* tablet */
-  /* @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 600px) and (max-width: 979px) {
     .images {
       width: 300px;
-      height: 650px;
+      height: 550px;
     }
 
     .jumbotron {
@@ -638,12 +667,12 @@
     }
 
     .jumbotron img {
-      margin-left: 280px;
+      margin-left: 250px;
 
     }
 
     .jumbotron h1 {
-      margin-left: 180px;
+      margin-left: 150px;
       margin-top: 20px;
     }
 
@@ -654,20 +683,22 @@
     .jumbotron p {
       margin-left: 210px;
     }
-  } */
+  }
 </style>
 
 <body>
 
   <!------ Include the above in your HEAD tag ---------->
   <nav class="navbar navbar-expand-lg navbar-light">
-    <img src="assets/images/logo.png" height="65px" width="75px" />
-    <a class="navbar-brand" href="#"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    <a class="navbar-brand" href="/">
+      <img src="assets/images/logo.png" height="65px" width="75px" />
+
+    </a>
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    </button> -->
+    <!-- <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
           <a class="nav-link" href="./index.html">
@@ -682,7 +713,7 @@
             संपर्क </a>
 
       </ul>
-    </div>
+    </div> -->
   </nav>
 
 
@@ -694,7 +725,6 @@
       <h3>हिन्दी प्रकोष्ठ</h3>
       <p>श्री माता वैष्णो देवी विश्वविद्यालय, कटरा</p>
 
-      <!-- <a class="btn btn-primary btn-lg " href="#pk" role="button">और अधिक जानें</a> -->
 
     </div>
 
